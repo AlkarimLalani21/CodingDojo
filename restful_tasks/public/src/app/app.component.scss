@@ -1,0 +1,11 @@
+.selected-task {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    width: 40%;
+    border: 1px solid rgb(190, 190, 190);
+    padding: 20px;
+    margin-left: 5px;
+}

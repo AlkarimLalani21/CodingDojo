@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      </head>
+<body>
+    <h1>Hiiii</h1>
+
+    <form (submit)="onSubmit()">
+        title: <input type="text" name="title" [(ngModel)]="newTask.title" /><br>
+        Description: <input type="text" name="description" [(ngModel)]="newTask.description" /><br>
+        <input type="submit" value="newTask" />
+    </form>
+    <button (click)="getTasksFromService()">Show Tasks!</button>
+    <table class="table table-dark" [hidden]="!getTasksFromService" *ngFor="let task of tasks" >
+        <thead>
+            <tr>
+                <th scope="col">Title:</th>
+                <th scope="col">Description:</th>
+                <th scope="col">Delete Task</th>
+                <th scope="col">Show Task</th>
+                <th scope="col">Edit Task</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td> {{task.title }} </td>
+                <td> {{task.description}}  </td>
+                <td><button (click)="delete(task._id)">Delete</button> </td>
+                <td><button class="select-btn" (click)="selectTask(task)">Show a Task!</button></td>
+                <td><button (click)="editTasks(task._id)">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+        <!-- <h1>The Third Task</h1>
+    <ul *ngIf="tasks.length > 2" (click)="selectTask(tasks[2])">
+      <li>{{tasks[2].title}} - {{tasks[2].description}} <button class="select-btn" (click)="selectTask(task)">Show</button></li>
+    </ul> -->
+    <div class="selected-task">
+        <p *ngIf="!selectedTask">you have not selected a task</p>
+        <div *ngIf ="selectedTask">
+            <h3>Title: {{selectedTask.title}}</h3>
+            <h3>Description: {{selectedTask.description}}</h3>
+        </div>
+    <div *ngIf = "singleTask">
+        <h1>{{singleTask.title}} {{singleTask.description}}</h1>
+        <form (submit)="edit(singleTask._id)">
+          <input type="text" name="title" [(ngModel)]="singleTask.title">
+          <input type="text" name="description" [(ngModel)]="singleTask.description">
+          <input type="submit" value="Update Task">
+        </form>
+    </div>
+    </div>
+    <!-- Optional JavaScript
+jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html> 

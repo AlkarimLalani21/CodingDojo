@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: honeydew;
+}
+.title{
+    text-align: center;
+    font-size: 80px;
+}
+.navcomponent{
+    display: inline-block;
+    background-color: rgb(201, 194, 194);
+    height: 400px;
+    min-width: 21%;
+    vertical-align: top;
+}
+
+app-hat-carousel{
+    display: inline-block;
+    height: 400px;
+    min-width: 79%;
+    background-color: khaki;
+}
